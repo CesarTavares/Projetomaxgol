@@ -1,10 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    //Bola
+    [SerializeField]    
+    private GameObject bola;
+    private int bolasNum = 2;
+    private bool bolaMorreu = false;
+    private int bolasEmCena = 0;
+    private Transform pos;
+
 
     void Awake()
     {
@@ -18,6 +28,13 @@ public class GameManager : MonoBehaviour
         {
             Destroy (gameObject);
         }
+         SceneManager.sceneLoaded += Carrega;
+    }
+
+     void Carrega(Scene cena, LoadSceneMode modo)
+    {
+        pos = GameObject.Find ("posStart").GetComponent<Transform> ();
+
     }
 
     void Start()
@@ -29,6 +46,22 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ScoreManager.instance.UpdateScore ();
-        UiManager.instance.UpdateUI ();
+        UIManager.instance.UpdateUI ();
+
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            SceneManager.LoadScene ("Level2");
+        }
+
+         NascBolas ();
+    }
+
+    void NascBolas()
+    {
+        if(bolasNum > 0 && bolasEmCena == 0)
+        {
+            Instantiate (bola, new Vector2(pos.position.x,pos.position.y), Quaternion.identity);
+            bolasEmCena += 1;
+        }
     }
 }

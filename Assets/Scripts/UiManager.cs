@@ -5,9 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-public class UiManager : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
-   public static UiManager instance;
+   public static UIManager instance;
    public Text pontosUI;
 
 
