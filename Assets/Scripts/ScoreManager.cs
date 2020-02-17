@@ -35,7 +35,7 @@ public class ScoreManager : MonoBehaviour
     } 
     public void UpdateScore()
     {
-
+        moedas = PlayerPrefs.GetInt ("moedasSave");
     }
     public void ColetaMoedas(int coin)
     {

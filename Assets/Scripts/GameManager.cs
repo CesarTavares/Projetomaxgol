@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
     private GameObject bola;
     private int bolasNum = 2;
     private bool bolaMorreu = false;
-    private int bolasEmCena = 0;
-    private Transform pos;
+    public int bolasEmCena = 0;
+    public Transform pos;
+
+    public int tiro = 0;
 
 
     void Awake()
@@ -62,6 +64,7 @@ public class GameManager : MonoBehaviour
         {
             Instantiate (bola, new Vector2(pos.position.x,pos.position.y), Quaternion.identity);
             bolasEmCena += 1;
+            tiro = 0;
         }
     }
 }

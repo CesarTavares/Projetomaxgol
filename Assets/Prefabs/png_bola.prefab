@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 7830603124714897214}
   - component: {fileID: 7830603124714897213}
   - component: {fileID: 7830603124714897212}
-  - component: {fileID: 1650078819}
-  - component: {fileID: 7221989071950246645}
+  - component: {fileID: 223144573}
   m_Layer: 0
   m_Name: png_bola
-  m_TagString: Untagged
+  m_TagString: bola
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7830603124714897187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.89, y: 3.28, z: 0}
-  m_LocalScale: {x: 0.11381054, y: 0.13921653, z: 0.2065527}
+  m_LocalPosition: {x: -1.938, y: 3.298, z: 0}
+  m_LocalScale: {x: 0.12, y: 0.15, z: 0.26}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 999
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 54d6886c5a60fd640aea4225eef9080f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,9 +95,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.039999936, y: -0.04365126}
   serializedVersion: 2
-  m_Radius: 2.56
+  m_Radius: 2.5838406
 --- !u!50 &7830603124714897212
 Rigidbody2D:
   serializedVersion: 4
@@ -120,7 +119,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1650078819
+--- !u!114 &223144573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,24 +128,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7830603124714897187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c8e142ef90bd648ba9558a2d2277e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 61a45cac6a7261441b797b54f0fa6fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   posStart: {fileID: 0}
-  setaImg: {fileID: 0}
+  setaGO: {fileID: 0}
   zRotate: 0
   liberaRot: 0
-  liberaTiro: 1
---- !u!114 &7221989071950246645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7830603124714897187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 325c5ee04cd105b4987fd2e23cd96e94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  liberaTiro: 0
   seta2Img: {fileID: 0}
