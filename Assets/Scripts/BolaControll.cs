@@ -8,7 +8,7 @@ public class BolaControll : MonoBehaviour
 {
         
    //Seta
-      public GameObject setaGO;
+   public GameObject setaGO;
 
    //Ang
    public float zRotate;

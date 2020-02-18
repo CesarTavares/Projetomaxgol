@@ -253,8 +253,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 657.15, y: 459}
-  m_SizeDelta: {x: -1214.4, y: -651.6}
+  m_AnchoredPosition: {x: 637, y: 468}
+  m_SizeDelta: {x: -1203.3, y: -651.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &32577804
 Animator:
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.68149763}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -625,6 +625,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   win: 0
   tiro: 0
+  ondeEstou: 0
 --- !u!4 &379672233
 Transform:
   m_ObjectHideFlags: 0
@@ -2224,7 +2225,7 @@ GameObject:
   - component: {fileID: 1329803215}
   - component: {fileID: 1329803214}
   m_Layer: 5
-  m_Name: Novamente
+  m_Name: Novamentewin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2545,26 +2546,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GOALBODY
       objectReference: {fileID: 0}
-    - target: {fileID: 4491096074508525775, guid: 15455a8fdff23d04a840b6b6c6ee4932,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.869
-      objectReference: {fileID: 0}
-    - target: {fileID: 4491096074508525775, guid: 15455a8fdff23d04a840b6b6c6ee4932,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4491096075369391708, guid: 15455a8fdff23d04a840b6b6c6ee4932,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 4491096075369391708, guid: 15455a8fdff23d04a840b6b6c6ee4932,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.05
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15455a8fdff23d04a840b6b6c6ee4932, type: 3}
 --- !u!1 &1601052380
@@ -2749,7 +2730,7 @@ GameObject:
   - component: {fileID: 1689805951}
   - component: {fileID: 1689805950}
   m_Layer: 5
-  m_Name: Novamente
+  m_Name: Novamentelose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2978,6 +2959,9 @@ MonoBehaviour:
   winPainel: {fileID: 0}
   pausePainel: {fileID: 0}
   pauseBtn: {fileID: 0}
+  pauseBTN_Return: {fileID: 0}
+  btnNovamente: {fileID: 0}
+  btnLevel: {fileID: 0}
 --- !u!4 &1730578175
 Transform:
   m_ObjectHideFlags: 0
@@ -3845,11 +3829,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952510743934125549, guid: 4f58d118ec4443f4abeaa73315d28bc7,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8107292700139901053, guid: 4f58d118ec4443f4abeaa73315d28bc7,
         type: 3}

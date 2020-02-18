@@ -12,7 +12,9 @@ public class UIManager : MonoBehaviour
    [SerializeField]
    private GameObject losePainel,winPainel,pausePainel;
    [SerializeField]
-   private Button pauseBtn;
+   private Button pauseBtn,pauseBTN_Return;
+   [SerializeField]
+   private Button btnNovamente,btnLevel;
    
 
    void Awake()
@@ -40,9 +42,17 @@ public class UIManager : MonoBehaviour
         winPainel = GameObject.Find ("WinPainel");
         pausePainel = GameObject.Find ("PausePainel");
         pauseBtn = GameObject.Find ("pause").GetComponent<Button>();
+        pauseBTN_Return = GameObject.Find ("Pause").GetComponent<Button>();
+        btnNovamente = GameObject.Find ("Novamentelose").GetComponent<Button>();
+        btnLevel = GameObject.Find ("MenuFases").GetComponent<Button>();
         LigaDesligaPainel ();
 
-        pauseBtn.onClick.AddListener(Pause);
+        pauseBtn.onClick.AddListener (Pause);
+        pauseBTN_Return.onClick.AddListener (PauseReturn);
+
+        //you Lose
+
+        btnNovamente.onClick.AddListener (JogarNovamente);
 
     }
 
@@ -75,6 +85,24 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    void PauseReturn()
+    {
+        
+        pausePainel.GetComponent<Animator> ().Play ("MoveUI_PauseR");
+        Time.timeScale = 1;
+        StartCoroutine (EsperaPause());
+    }
+
+    IEnumerator EsperaPause()
+    {
+        yield return new WaitForSeconds (0.8f);
+        pausePainel.SetActive (false);
+
+    }
+
+
+
+
     IEnumerator tempo()
     {
         yield return new WaitForSeconds (0.001f);
@@ -83,6 +111,9 @@ public class UIManager : MonoBehaviour
         pausePainel.SetActive (false);
     }
 
-
+    void JogarNovamente()
+    {
+        SceneManager.LoadScene (GameManager.instance.ondeEstou);
+    }
   
 }
