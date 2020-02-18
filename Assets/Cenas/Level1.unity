@@ -620,6 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bola: {fileID: 7830603124714897187, guid: 7de560c987942a1459488f08856a472b, type: 3}
+  bolasNum: 2
   bolasEmCena: 0
   pos: {fileID: 0}
   tiro: 0
@@ -3014,7 +3015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167e315c23064b547bb2aee7523ebc59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pontosUI: {fileID: 0}
 --- !u!4 &1730578175
 Transform:
   m_ObjectHideFlags: 0
@@ -3042,7 +3042,7 @@ GameObject:
   - component: {fileID: 1773838001}
   - component: {fileID: 1773838000}
   m_Layer: 5
-  m_Name: PontosUI2
+  m_Name: bolasUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

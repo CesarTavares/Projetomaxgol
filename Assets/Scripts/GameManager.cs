@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour
         }
 
          NascBolas ();
+
+         if(bolasNum <= 0)
+         {
+             GameOver ();
+         }
     }
 
     void NascBolas()
@@ -66,5 +71,10 @@ public class GameManager : MonoBehaviour
             bolasEmCena += 1;
             tiro = 0;
         }
+    }
+
+    void GameOver()
+    {
+        UIManager.instance.GameOverUI ();
     }
 }
