@@ -204,12 +204,14 @@ public class BolaControll : MonoBehaviour
         {
             Destroy (this.gameObject);
             GameManager.instance.bolasEmCena -= 1;
+            GameManager.instance.bolasNum -= 1;
         }
 
         if(this.gameObject.transform.position.x < paredeLE.position.x)
         {
             Destroy (this.gameObject);
             GameManager.instance.bolasEmCena -= 1;
+             GameManager.instance.bolasNum -= 1;
         }
     }
 

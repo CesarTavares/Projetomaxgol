@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
    public static UIManager instance;
-   public Text pontosUI;
+   private Text pontosUI,bolasUI;
 
 
    void Awake()
@@ -31,13 +31,14 @@ public class UIManager : MonoBehaviour
     void Carrega(Scene cena, LoadSceneMode modo)
     {
         pontosUI = GameObject.Find ("PontosUI").GetComponent<Text> ();
+        bolasUI = GameObject.Find ("bolasUI").GetComponent<Text> ();
 
     }
 
     public void UpdateUI()
     {
         pontosUI.text = ScoreManager.instance.moedas.ToString();
-
+        bolasUI.text = GameManager.instance.bolasNum.ToString();
     }
   
 }
