@@ -222,5 +222,10 @@ public class BolaControll : MonoBehaviour
             Destroy (this.gameObject);
             GameManager.instance.bolasEmCena -= 1;   
         }
+
+        if(outro.gameObject.CompareTag("win"))
+        {
+            GameManager.instance.win = true;
+        }
     }
 }

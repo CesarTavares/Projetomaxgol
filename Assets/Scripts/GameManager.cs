@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private bool bolaMorreu = false;
     public int bolasEmCena = 0;
     public Transform pos;
+    public bool win;
 
     public int tiro = 0;
 
@@ -61,6 +62,11 @@ public class GameManager : MonoBehaviour
          {
              GameOver ();
          }
+
+         if(win == true)
+         {
+              WinGame ();
+         }
     }
 
     void NascBolas()
@@ -76,5 +82,10 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         UIManager.instance.GameOverUI ();
+    }
+
+    void WinGame()
+    {
+        UIManager.instance.WinGameUI ();
     }
 }
