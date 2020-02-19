@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
    private Button pauseBtn,pauseBTN_Return;
    [SerializeField]
    private Button btnNovamente,btnLevel;
+  
+   public int moedasNumAntes,moedasNumDepois,Resultado;
+
    
 
    void Awake()
@@ -45,7 +48,7 @@ public class UIManager : MonoBehaviour
         pauseBTN_Return = GameObject.Find ("Pause").GetComponent<Button>();
         btnNovamente = GameObject.Find ("Novamentelose").GetComponent<Button>();
         btnLevel = GameObject.Find ("MenuFases").GetComponent<Button>();
-        LigaDesligaPainel ();
+       
 
         pauseBtn.onClick.AddListener (Pause);
         pauseBTN_Return.onClick.AddListener (PauseReturn);
@@ -54,12 +57,21 @@ public class UIManager : MonoBehaviour
 
         btnNovamente.onClick.AddListener (JogarNovamente);
 
+        moedasNumAntes = PlayerPrefs.GetInt ("moedasSave");
+
+
+    }
+
+    public void StartUI()
+    {
+         LigaDesligaPainel ();
     }
 
     public void UpdateUI()
     {
         pontosUI.text = ScoreManager.instance.moedas.ToString();
         bolasUI.text = GameManager.instance.bolasNum.ToString();
+        moedasNumDepois = ScoreManager.instance.moedas;
         
     }
 
@@ -114,6 +126,9 @@ public class UIManager : MonoBehaviour
     void JogarNovamente()
     {
         SceneManager.LoadScene (GameManager.instance.ondeEstou);
+        Resultado = moedasNumDepois - moedasNumAntes;
+        ScoreManager.instance.PerdeMoedas (Resultado);
+        Resultado = 0;
     }
   
 }
