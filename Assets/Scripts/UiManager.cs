@@ -14,9 +14,11 @@ public class UIManager : MonoBehaviour
    [SerializeField]
    private Button pauseBtn,pauseBTN_Return;
    [SerializeField]
-   private Button btnNovamente,btnLevel;
+   private Button btnNovamenteLose,btnLevelLose;//Botões de Lose
+
+   private Button btnLevelWin,btnNovamenteWin,btnAvancaWin;// Botões de Win
   
-   public int moedasNumAntes,moedasNumDepois,Resultado;
+   public int moedasNumAntes,moedasNumDepois,resultado;
 
    
 
@@ -39,26 +41,46 @@ public class UIManager : MonoBehaviour
 
     void Carrega(Scene cena, LoadSceneMode modo)
     {
+        if(OndeEstou.instance.fase != 4)
+        {
+            //Elementos da UI pontos e bolas
         pontosUI = GameObject.Find ("PontosUI").GetComponent<Text> ();
         bolasUI = GameObject.Find ("bolasUI").GetComponent<Text> ();
+            //Paineis
         losePainel = GameObject.Find ("LosePainel");
         winPainel = GameObject.Find ("WinPainel");
         pausePainel = GameObject.Find ("PausePainel");
+            //Botões de Pause
         pauseBtn = GameObject.Find ("pause").GetComponent<Button>();
         pauseBTN_Return = GameObject.Find ("Pause").GetComponent<Button>();
-        btnNovamente = GameObject.Find ("Novamentelose").GetComponent<Button>();
-        btnLevel = GameObject.Find ("MenuFases").GetComponent<Button>();
+            //Botões de Lose
+        btnNovamenteLose = GameObject.Find ("NovamenteLOSE").GetComponent<Button>();
+        btnLevelLose = GameObject.Find ("MenuFasesLOSE").GetComponent<Button>();
+            //Botões de Win
+        btnLevelWin = GameObject.Find ("MenuFasesWIN").GetComponent<Button> ();
+        btnNovamenteWin = GameObject.Find ("NovamenteWIN").GetComponent<Button> ();
+        btnAvancaWin = GameObject.Find ("AvancarWIN").GetComponent<Button> ();
        
+            //Eventos
 
+            //Eventos Pause
         pauseBtn.onClick.AddListener (Pause);
         pauseBTN_Return.onClick.AddListener (PauseReturn);
 
-        //you Lose
+        //Eventos you Lose
 
-        btnNovamente.onClick.AddListener (JogarNovamente);
+        btnNovamenteLose.onClick.AddListener (JogarNovamente);
+        btnLevelLose.onClick.AddListener (Levels);
+
+        //Eventos You Win
+        btnLevelWin.onClick.AddListener (Levels);
+        btnNovamenteWin.onClick.AddListener (JogarNovamente);
+        btnAvancaWin.onClick.AddListener (ProximaFase);
+
+
 
         moedasNumAntes = PlayerPrefs.GetInt ("moedasSave");
-
+        }
 
     }
 
@@ -125,10 +147,45 @@ public class UIManager : MonoBehaviour
 
     void JogarNovamente()
     {
-        SceneManager.LoadScene (GameManager.instance.ondeEstou);
-        Resultado = moedasNumDepois - moedasNumAntes;
-        ScoreManager.instance.PerdeMoedas (Resultado);
-        Resultado = 0;
+       if(GameManager.instance.win == false)
+       {
+            SceneManager.LoadScene(OndeEstou.instance.fase);
+            resultado = moedasNumDepois - moedasNumAntes;
+            ScoreManager.instance.PerdeMoedas (resultado);
+            resultado = 0;
+       }
+       else
+       {
+            SceneManager.LoadScene(OndeEstou.instance.fase); 
+            resultado = 0;  
+       }
+    }
+
+    void Levels()
+    {
+        if(GameManager.instance.win == false)
+        {
+            resultado = moedasNumDepois - moedasNumAntes;
+            ScoreManager.instance.PerdeMoedas (resultado);
+            resultado = 0;
+            SceneManager.LoadScene (4);
+
+        }
+
+        else
+        {
+            resultado = 0;
+            SceneManager.LoadScene (4);
+        }
+    }
+
+    void ProximaFase()
+    {
+        if(GameManager.instance.win == true)
+        {
+            int temp = OndeEstou.instance.fase + 1;
+            SceneManager.LoadScene (temp);
+        }
     }
   
 }

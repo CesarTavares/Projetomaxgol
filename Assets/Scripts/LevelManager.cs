@@ -54,6 +54,12 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    void Awake()
+    {
+        Destroy (GameObject.Find("UIManager"));
+        Destroy (GameObject.Find("GameManager"));
+    }
+
     void Start()
     {
         //PlayerPrefs.DeleteAll();

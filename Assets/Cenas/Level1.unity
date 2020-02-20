@@ -476,6 +476,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132670422}
   m_CullTransparentMesh: 0
+--- !u!1 &148185494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 148185496}
+  - component: {fileID: 148185495}
+  m_Layer: 0
+  m_Name: OndeEstou
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &148185495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148185494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc45548bc98fb542aa753a786358d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fase: 0
+--- !u!4 &148185496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148185494}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.88, y: -4.56, z: 90.31789}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &288160877
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +533,7 @@ GameObject:
   - component: {fileID: 288160880}
   - component: {fileID: 288160879}
   m_Layer: 5
-  m_Name: Avancar
+  m_Name: AvancarWIN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -625,7 +669,6 @@ MonoBehaviour:
   pos: {fileID: 0}
   win: 0
   tiro: 0
-  ondeEstou: 0
   jogoComecou: 0
 --- !u!4 &379672233
 Transform:
@@ -788,7 +831,7 @@ PrefabInstance:
     - target: {fileID: 2751405253866873197, guid: 4f58d118ec4443f4abeaa73315d28bc7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2751405253866873197, guid: 4f58d118ec4443f4abeaa73315d28bc7,
         type: 3}
@@ -1602,7 +1645,7 @@ PrefabInstance:
     - target: {fileID: 2751405253866873197, guid: 4f58d118ec4443f4abeaa73315d28bc7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2751405253866873197, guid: 4f58d118ec4443f4abeaa73315d28bc7,
         type: 3}
@@ -2171,7 +2214,7 @@ GameObject:
   - component: {fileID: 1281010213}
   - component: {fileID: 1281010212}
   m_Layer: 5
-  m_Name: MenuFases
+  m_Name: MenuFasesLOSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2364,7 +2407,7 @@ GameObject:
   - component: {fileID: 1329803215}
   - component: {fileID: 1329803214}
   m_Layer: 5
-  m_Name: Novamentewin
+  m_Name: NovamenteWIN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2869,7 +2912,7 @@ GameObject:
   - component: {fileID: 1689805951}
   - component: {fileID: 1689805950}
   m_Layer: 5
-  m_Name: Novamentelose
+  m_Name: NovamenteLOSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3099,11 +3142,11 @@ MonoBehaviour:
   pausePainel: {fileID: 0}
   pauseBtn: {fileID: 0}
   pauseBTN_Return: {fileID: 0}
-  btnNovamente: {fileID: 0}
-  btnLevel: {fileID: 0}
+  btnNovamenteLose: {fileID: 0}
+  btnLevelLose: {fileID: 0}
   moedasNumAntes: 0
   moedasNumDepois: 0
-  Resultado: 0
+  resultado: 0
 --- !u!4 &1730578175
 Transform:
   m_ObjectHideFlags: 0
@@ -3736,7 +3779,7 @@ GameObject:
   - component: {fileID: 2055283116}
   - component: {fileID: 2055283115}
   m_Layer: 5
-  m_Name: MenuFases
+  m_Name: MenuFasesWIN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
