@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class testeAbrir : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     void Start()
     {
        PlayerPrefs.SetInt ("Level2",1); 

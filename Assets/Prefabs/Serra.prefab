@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 267703800039094844}
   m_Layer: 0
   m_Name: Serra
-  m_TagString: Untagged
+  m_TagString: morte
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 267703800039094845}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.243511, y: -1.9461825, z: 0}
-  m_LocalScale: {x: 0.67169577, y: 0.67169577, z: 0.67169577}
+  m_LocalScale: {x: 0.2957139, y: 0.2957139, z: 0.2957139}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

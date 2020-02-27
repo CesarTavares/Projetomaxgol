@@ -36,11 +36,18 @@ public class UIManager : MonoBehaviour
        }
 
        SceneManager.sceneLoaded += Carrega;
+
+       PegaDados ();
       
     }
 
     void Carrega(Scene cena, LoadSceneMode modo)
     {
+        PegaDados ();
+    }
+
+    void PegaDados()
+    {    
         if(OndeEstou.instance.fase != 4)
         {
             //Elementos da UI pontos e bolas
@@ -51,11 +58,11 @@ public class UIManager : MonoBehaviour
         winPainel = GameObject.Find ("WinPainel");
         pausePainel = GameObject.Find ("PausePainel");
             //Botões de Pause
-        pauseBtn = GameObject.Find ("pause").GetComponent<Button>();
-        pauseBTN_Return = GameObject.Find ("Pause").GetComponent<Button>();
+        pauseBtn = GameObject.Find ("pause").GetComponent<Button> ();
+        pauseBTN_Return = GameObject.Find ("Pause").GetComponent<Button> ();
             //Botões de Lose
-        btnNovamenteLose = GameObject.Find ("NovamenteLOSE").GetComponent<Button>();
-        btnLevelLose = GameObject.Find ("MenuFasesLOSE").GetComponent<Button>();
+        btnNovamenteLose = GameObject.Find ("NovamenteLOSE").GetComponent<Button> ();
+        btnLevelLose = GameObject.Find ("MenuFasesLOSE").GetComponent<Button> ();
             //Botões de Win
         btnLevelWin = GameObject.Find ("MenuFasesWIN").GetComponent<Button> ();
         btnNovamenteWin = GameObject.Find ("NovamenteWIN").GetComponent<Button> ();
@@ -76,10 +83,8 @@ public class UIManager : MonoBehaviour
         btnLevelWin.onClick.AddListener (Levels);
         btnNovamenteWin.onClick.AddListener (JogarNovamente);
         btnAvancaWin.onClick.AddListener (ProximaFase);
-
-
-
         moedasNumAntes = PlayerPrefs.GetInt ("moedasSave");
+        
         }
 
     }

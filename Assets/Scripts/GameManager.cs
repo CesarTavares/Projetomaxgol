@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private const string Name = "posStart";
     public static GameManager instance;
 
     //Bola
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     public Transform pos;
     public bool win;
     public int tiro = 0;
+
    // public int ondeEstou;
     public bool jogoComecou;
 
@@ -34,20 +36,22 @@ public class GameManager : MonoBehaviour
             Destroy (gameObject);
         }
          SceneManager.sceneLoaded += Carrega;
+
+         pos = GameObject.Find ("posStart").GetComponent<Transform> ();
     }
 
      void Carrega(Scene cena, LoadSceneMode modo)
     {
         if(OndeEstou.instance.fase != 4)
         {
-        pos = GameObject.Find ("posStart").GetComponent<Transform> ();
-        //ondeEstou =SceneManager.GetActiveScene ().buildIndex;
+        pos = GameObject.Find ("posStart").GetComponent<Transform> ();        
         StartGame ();
         }
     }
 
     void Start()
     {
+         StartGame ();
         ScoreManager.instance.GameStartScoreM ();
     }
 
@@ -77,11 +81,25 @@ public class GameManager : MonoBehaviour
 
     void NascBolas()
     {
+        if(OndeEstou.instance.fase >= 3)
+        {
+            if(bolasNum > 0 && bolasEmCena == 0 && Camera.main.transform.position.x <= 0.05f)
+            {
+                Instantiate(bola, new Vector2 (pos.position.x, pos.position.y), Quaternion.identity);
+                bolasEmCena += 1;
+                tiro = 0;
+
+            }
+        }
+        else
+        {
+
         if(bolasNum > 0 && bolasEmCena == 0)
         {
-            Instantiate (bola, new Vector2(pos.position.x,pos.position.y), Quaternion.identity);
+            Instantiate (bola,new Vector2(pos.position.x,pos.position.y), Quaternion.identity);
             bolasEmCena += 1;
             tiro = 0;
+        }
         }
     }
 

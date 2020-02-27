@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour
             btnNew.GetComponent<Button> ().interactable = level.habilitado;
             btnNew.GetComponentInChildren<Text> ().enabled = level.txtAtivo;
 
-            btnNew.GetComponent<Button>().onClick.AddListener(() => ClickLevel ("Level"+btnNew.levelTxtBTN.text));
+            btnNew.GetComponent<Button>().onClick.AddListener(() => ClickLevel ("Level" + btnNew.levelTxtBTN.text));
 
             btnNovo.transform.SetParent (localBtn, false);
 
@@ -56,13 +56,13 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
-        Destroy (GameObject.Find("UIManager"));
-        Destroy (GameObject.Find("GameManager"));
+        Destroy (GameObject.Find("UIManager(Clone)"));
+        Destroy (GameObject.Find("GameManager(Clone)"));
     }
 
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
+      // PlayerPrefs.DeleteAll();
       ListaAdd ();  
     }
 

@@ -18,11 +18,16 @@ public class BolaControll : MonoBehaviour
    //Força
 
     private Rigidbody2D bola;
-    private float force = 0f;
+    private float force = 0;
     public GameObject seta2Img;
 
     //Paredes
     private Transform paredeLD,paredeLE;
+
+    //Morte Bola Anim
+    [SerializeField]
+    private GameObject MorteBolaAnim;
+
 
    void Awake()
    {
@@ -48,7 +53,7 @@ public class BolaControll : MonoBehaviour
       
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
        RotacaoSeta ();
@@ -60,6 +65,7 @@ public class BolaControll : MonoBehaviour
 
         ControlaForca ();
         AplicaForca ();
+
         //Paredes
         Paredes ();
 
@@ -78,7 +84,7 @@ public class BolaControll : MonoBehaviour
 
     void InputDeRotacao()
     {
-        /*if(Input.GetKey(KeyCode.UpArrow))
+       if(Input.GetKey(KeyCode.UpArrow))
         {
             zRotate += 2.5f;
         }
@@ -86,7 +92,7 @@ public class BolaControll : MonoBehaviour
         if(Input.GetKey(KeyCode.DownArrow))
         {
             zRotate -= 2.5f;
-        }*/
+        }
 
     
 
@@ -219,13 +225,19 @@ public class BolaControll : MonoBehaviour
     {
         if(outro.gameObject.CompareTag("morte"))
         {
+            Instantiate(MorteBolaAnim, transform.position, Quaternion.identity);
             Destroy (this.gameObject);
-            GameManager.instance.bolasEmCena -= 1;   
+            GameManager.instance.bolasEmCena -= 1;
+            GameManager.instance.bolasNum -= 1; 
+
         }
 
         if(outro.gameObject.CompareTag("win"))
         {
-            GameManager.instance.win = true;
+           GameManager.instance.win = true;
+           int temp = OndeEstou.instance.fase + 1;
+           temp++;
+           PlayerPrefs.SetInt ("Level"+temp,1); 
         }
     }
 }
