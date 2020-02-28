@@ -593,8 +593,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: 10}
-  m_SizeDelta: {x: -380.9, y: -169.4}
+  m_AnchoredPosition: {x: -8, y: 10}
+  m_SizeDelta: {x: -357.1, y: -169.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1126636479
 MonoBehaviour:
@@ -672,15 +672,15 @@ MonoBehaviour:
     bolasNomeSprite: alemanha
     bolasPreco: 100
     bolasComprou: 0
-  - bolasID: 0
-    bolasNomeSprite: argelia
+  - bolasID: 1
+    bolasNomeSprite: Argelia
     bolasPreco: 500
     bolasComprou: 0
-  - bolasID: 0
-    bolasNomeSprite: brasil
+  - bolasID: 2
+    bolasNomeSprite: Brasil
     bolasPreco: 1500
     bolasComprou: 0
-  baseBolaItem: {fileID: 3560173218056553925, guid: 17b09d2cc7ee8e146b75161c012d7559,
+  baseBolaItem: {fileID: 9182928707891493629, guid: 98d683d79fe9c13498c5f5d8edd301c9,
     type: 3}
   conteudo: {fileID: 1126636478}
 --- !u!1 &1453668953
@@ -756,72 +756,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453668953}
   m_CullTransparentMesh: 0
---- !u!1 &1513491862
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1513491865}
-  - component: {fileID: 1513491864}
-  - component: {fileID: 1513491863}
-  m_Layer: 5
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1513491863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513491862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &1513491864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513491862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
---- !u!4 &1513491865
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513491862}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5833333, y: -0.081944466, z: 90}
-  m_LocalScale: {x: 0.013888889, y: 0.013888889, z: 0.013888889}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1729327364
 GameObject:
   m_ObjectHideFlags: 0
