@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bolasIDe: 0
+  btnText: {fileID: 7903669002182957036}
 --- !u!1 &7903669004181132278
 GameObject:
   m_ObjectHideFlags: 0

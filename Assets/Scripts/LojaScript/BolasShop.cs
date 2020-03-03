@@ -9,6 +9,8 @@ public class BolasShop : MonoBehaviour
 
     public List<Bolas> bolasList = new List<Bolas>();
     public List<GameObject> bolaSuporteList = new List<GameObject> ();
+    public List<GameObject> compraBtnList = new List<GameObject> ();
+
 
     public GameObject baseBolaItem;
     public Transform conteudo;
@@ -46,12 +48,22 @@ public class BolasShop : MonoBehaviour
             item.bolaPreco.text = b.bolasPreco.ToString ();
             item.btnCompra.GetComponent<CompraBola>().bolasIDe = b.bolasID;
 
+            //Lista CompraBtn
+            compraBtnList.Add(item.btnCompra);
+
+
             //Lista bolaSuporteList
             bolaSuporteList.Add(itensBola);
+
+            if(PlayerPrefs.GetInt("BTN"+item.bolaID) == 1)
+            {
+                b.bolasComprou = true;
+            }
 
             if(b.bolasComprou == true)
             {
                 item.bolaSprite.sprite = Resources.Load<Sprite> ("Sprites/" + b.bolasNomeSprite);
+                item.bolaPreco.text = "Comprado!";
             }
             else
             {
@@ -76,6 +88,9 @@ public class BolasShop : MonoBehaviour
                         if(bolasList[j].bolasComprou == true)
                         {
                             bolasSuportScript.bolaSprite.sprite = Resources.Load<Sprite> ("Sprites/" + bolasList [j].bolasNomeSprite);
+                             bolasSuportScript.bolaPreco.text = "Comprado!";
+                             SalvaBolasLojaInfo(bolasSuportScript.bolaID);
+
                         }
                         else
                         {
@@ -83,6 +98,19 @@ public class BolasShop : MonoBehaviour
                         }
                     }
                 }
+            }
+        }
+    }
+
+    void SalvaBolasLojaInfo(int idBola)
+    {
+        for(int i =0; i < bolasList.Count; i++)
+        {
+            BolasSuporte bolasSup = bolaSuporteList[i].GetComponent<BolasSuporte> ();
+
+            if(bolasSup.bolaID == idBola)
+            {
+                PlayerPrefs.SetInt ("BTN"+bolasSup.bolaID,bolasSup.btnCompra ? 1 : 0);
             }
         }
     }
