@@ -9,6 +9,8 @@ public class CompraBola : MonoBehaviour
 
     public void CompraBolaBtn()
     {
+        //Debug.Log("Olá, passei por aqui!");
+
         for(int i = 0; i < BolasShop.instance.bolasList.Count;i++)
         {
             if(BolasShop.instance.bolasList[i].bolasID == bolasIDe && !BolasShop.instance.bolasList[i].bolasComprou)
@@ -17,6 +19,6 @@ public class CompraBola : MonoBehaviour
             }
         }
 
-        //BolasShop.instance.UpdateSprite (bolasIDe);
+        BolasShop.instance.UpdateSprite (bolasIDe);
     }
 }

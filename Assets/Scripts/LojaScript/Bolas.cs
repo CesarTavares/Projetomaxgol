@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Bolas 
 {
-   public int bolasID; //Identificação da Bola
+   public int bolasID; 
    public string bolasNomeSprite; 
    public int bolasPreco;
    public bool bolasComprou;
