@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     //Bola
     [SerializeField]    
-    private GameObject bola;
+    private GameObject[] bola;
     public int bolasNum = 2;
     private bool bolaMorreu = false;
     public int bolasEmCena = 0;
@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //PlayerPrefs.DeleteAll ();
          StartGame ();
         ScoreManager.instance.GameStartScoreM ();
     }
@@ -85,7 +86,7 @@ public class GameManager : MonoBehaviour
         {
             if(bolasNum > 0 && bolasEmCena == 0 && Camera.main.transform.position.x <= 0.05f)
             {
-                Instantiate(bola, new Vector2 (pos.position.x, pos.position.y), Quaternion.identity);
+                Instantiate(bola[OndeEstou.instance.bolaEmUso], new Vector2 (pos.position.x, pos.position.y), Quaternion.identity);
                 bolasEmCena += 1;
                 tiro = 0;
 
@@ -96,7 +97,7 @@ public class GameManager : MonoBehaviour
 
         if(bolasNum > 0 && bolasEmCena == 0)
         {
-            Instantiate (bola,new Vector2(pos.position.x,pos.position.y), Quaternion.identity);
+            Instantiate (bola[OndeEstou.instance.bolaEmUso],new Vector2(pos.position.x,pos.position.y), Quaternion.identity);
             bolasEmCena += 1;
             tiro = 0;
         }

@@ -10,6 +10,7 @@ public class OndeEstou : MonoBehaviour
     public GameObject UiManagerGO,GameManagerGO;
 
     public static OndeEstou instance;
+    public int bolaEmUso;
 
     void Awake()
     {
@@ -25,6 +26,7 @@ public class OndeEstou : MonoBehaviour
         }
 
         SceneManager.sceneLoaded += VerificaFase;
+        bolaEmUso = PlayerPrefs.GetInt ("BolaUse");
     }
 
     void VerificaFase(Scene cena, LoadSceneMode modo)

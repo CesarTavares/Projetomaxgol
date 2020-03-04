@@ -7,6 +7,9 @@ TagManager:
   - win
   - bola
   - morte
+  - barraAnimTag
+  - toque
+  - falido
   layers:
   - Default
   - TransparentFX

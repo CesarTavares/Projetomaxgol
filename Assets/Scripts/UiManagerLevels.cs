@@ -12,6 +12,7 @@ public class UiManagerLevels : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ScoreManager.instance.UpdateScore ();
         moedasLevel.text = PlayerPrefs.GetInt ("moedasSave").ToString ();     
     }
 
