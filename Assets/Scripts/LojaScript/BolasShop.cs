@@ -27,6 +27,7 @@ public class BolasShop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //PlayerPrefs.DeleteAll ();
         FillList ();
     }
 
@@ -60,10 +61,20 @@ public class BolasShop : MonoBehaviour
                 b.bolasComprou = true;
             }
 
+            if(PlayerPrefs.HasKey("BTNS"+item.bolaID) && b.bolasComprou)
+            {
+                item.btnCompra.GetComponent<CompraBola>().btnText.text = PlayerPrefs.GetString ("BTNS"+item.bolaID);
+            }
+
             if(b.bolasComprou == true)
             {
                 item.bolaSprite.sprite = Resources.Load<Sprite> ("Sprites/" + b.bolasNomeSprite);
                 item.bolaPreco.text = "Comprado!";
+
+                if(PlayerPrefs.HasKey("BTNS"+item.bolaID) == false)
+                {
+                    item.btnCompra.GetComponent<CompraBola>().btnText.text = "Usando";
+                }
             }
             else
             {
@@ -111,6 +122,19 @@ public class BolasShop : MonoBehaviour
             if(bolasSup.bolaID == idBola)
             {
                 PlayerPrefs.SetInt ("BTN"+bolasSup.bolaID,bolasSup.btnCompra ? 1 : 0);
+            }
+        }
+    }
+
+    public void SalvaBolasLojaText(int idBola, string s)
+    {
+        for(int i =0; i < bolasList.Count; i++)
+        {
+            BolasSuporte bolasSup = bolaSuporteList [i].GetComponent<BolasSuporte> ();
+
+            if(bolasSup.bolaID == idBola)
+            {
+                PlayerPrefs.SetString ("BTNS"+bolasSup.bolaID,s);
             }
         }
     }

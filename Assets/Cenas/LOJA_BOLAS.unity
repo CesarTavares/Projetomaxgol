@@ -671,7 +671,7 @@ MonoBehaviour:
   - bolasID: 0
     bolasNomeSprite: alemanha
     bolasPreco: 100
-    bolasComprou: 0
+    bolasComprou: 1
   - bolasID: 1
     bolasNomeSprite: argelia
     bolasPreco: 500
@@ -693,6 +693,7 @@ MonoBehaviour:
     bolasPreco: 3000
     bolasComprou: 0
   bolaSuporteList: []
+  compraBtnList: []
   baseBolaItem: {fileID: 7903669002165200340, guid: 98d683d79fe9c13498c5f5d8edd301c9,
     type: 3}
   conteudo: {fileID: 1126636478}
