@@ -10,6 +10,7 @@ TagManager:
   - barraAnimTag
   - toque
   - falido
+  - MenuInfo
   layers:
   - Default
   - TransparentFX
