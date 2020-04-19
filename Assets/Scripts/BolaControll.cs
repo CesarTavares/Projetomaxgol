@@ -28,6 +28,9 @@ public class BolaControll : MonoBehaviour
     [SerializeField]
     private GameObject MorteBolaAnim;
 
+    //toque
+	private Collider2D toqueCol;
+
 
    void Awake()
    {
@@ -84,7 +87,7 @@ public class BolaControll : MonoBehaviour
 
     void InputDeRotacao()
     {
-       if(Input.GetKey(KeyCode.UpArrow))
+      /* if(Input.GetKey(KeyCode.UpArrow))
         {
             zRotate += 2.5f;
         }
@@ -92,7 +95,7 @@ public class BolaControll : MonoBehaviour
         if(Input.GetKey(KeyCode.DownArrow))
         {
             zRotate -= 2.5f;
-        }
+        }*/
 
     
 
@@ -141,6 +144,8 @@ public class BolaControll : MonoBehaviour
         liberaRot = true;
         setaGO.GetComponent<Image> ().enabled = true;
         seta2Img.GetComponent<Image> ().enabled = true;
+
+            toqueCol = GameObject.FindGameObjectWithTag("toque").GetComponentInChildren<Collider2D>();
         }
     }
 
@@ -158,6 +163,7 @@ public class BolaControll : MonoBehaviour
         seta2Img.GetComponent<Image> ().fillAmount = 0;       
         AudioManager.instance.SonsFXToca (1);
         GameManager.instance.tiro = 1;
+        toqueCol.enabled = false;
 
         }
        

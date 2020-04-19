@@ -7,10 +7,15 @@ public class OndeEstou : MonoBehaviour
 {
     public int fase = -1;
     [SerializeField]
-    public GameObject UiManagerGO,GameManagerGO;
+    private GameObject UiManagerGO,GameManagerGO;
 
     public static OndeEstou instance;
     public int bolaEmUso;
+
+    private float orthoSize = 5;
+    [SerializeField]
+    private float aspect = 1.75f;
+
 
     void Awake()
     {
@@ -33,11 +38,13 @@ public class OndeEstou : MonoBehaviour
     {
         fase = SceneManager.GetActiveScene ().buildIndex;
 
-        if(fase != 4 && fase != 5 && fase != 6)
+        if(fase != 0 && fase != 1 && fase != 2)
         {
             Instantiate (UiManagerGO);
             Instantiate (GameManagerGO);
+           Camera.main.projectionMatrix = Matrix4x4.Ortho(-orthoSize * aspect,orthoSize * aspect,-orthoSize,orthoSize,Camera.main.nearClipPlane, Camera.main.farClipPlane);
         }
-    }
-}
 
+    }
+
+}

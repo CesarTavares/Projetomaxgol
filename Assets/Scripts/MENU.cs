@@ -7,6 +7,6 @@ public class MENU : MonoBehaviour
 {
    public void MenuGO()
    {
-       SceneManager.LoadScene (4);
+       SceneManager.LoadScene (1);
    }
 }

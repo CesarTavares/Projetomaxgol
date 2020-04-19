@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Cenas/MENU_INICIAL.unity
+    guid: adfd074774b073c48a649738f0c98ecf
+  - enabled: 1
+    path: Assets/Cenas/LEVEL_GAME.unity
+    guid: 4b1a51b1d8bf6084cbc9d9492d456fe0
+  - enabled: 1
+    path: Assets/Cenas/LOJA_BOLAS.unity
+    guid: c67cf5d3174034d428b19e0a8289b7d7
+  - enabled: 1
     path: Assets/Cenas/Level1.unity
     guid: 5f755b3654efafe479a7ef412e349ba8
   - enabled: 1
@@ -17,13 +26,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Cenas/Level4.unity
     guid: 08ef1ee824b911c44947e6cff56c323b
-  - enabled: 1
-    path: Assets/Cenas/LEVEL_GAME.unity
-    guid: 4b1a51b1d8bf6084cbc9d9492d456fe0
-  - enabled: 1
-    path: Assets/Cenas/LOJA_BOLAS.unity
-    guid: c67cf5d3174034d428b19e0a8289b7d7
-  - enabled: 1
-    path: Assets/Cenas/MENU_INICIAL.unity
-    guid: adfd074774b073c48a649738f0c98ecf
   m_configObjects: {}

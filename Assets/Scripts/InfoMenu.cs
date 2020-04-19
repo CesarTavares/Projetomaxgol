@@ -49,4 +49,9 @@ public class InfoMenu : MonoBehaviour
 
    }
 
+   public void Facebook()
+   {
+       Application.OpenURL ("https://www.facebook.com/cesar.r.tavares?ref=tn_tnmn");
+   }
+
 }

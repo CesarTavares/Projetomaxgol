@@ -7,38 +7,40 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-   public static UIManager instance;
-   private Text pontosUI,bolasUI;
-   [SerializeField]
-   private GameObject losePainel,winPainel,pausePainel;
-   [SerializeField]
-   private Button pauseBtn,pauseBTN_Return;
-   [SerializeField]
-   private Button btnNovamenteLose,btnLevelLose;//Botões de Lose
+    public static UIManager instance;
+    [SerializeField]
+    private Text pontosUI, bolasUI;
+    [SerializeField]
+    private GameObject losePainel, winPainel, pausePainel;
+    [SerializeField]
+    private Button pauseBtn, pauseBTN_Return;
+    [SerializeField]
+    private Button btnNovamenteLose, btnLevelLose;//Botões de Lose
+    private Button btnNovamenteFase;
 
-   private Button btnLevelWin,btnNovamenteWin,btnAvancaWin;// Botões de Win
-  
-   public int moedasNumAntes,moedasNumDepois,resultado;
+    private Button btnLevelWin, btnNovamenteWin, btnAvancaWin;// Botões de Win
 
-   
+    public int moedasNumAntes, moedasNumDepois, resultado;
 
-   void Awake()
-   {
-       if(instance == null)
-       {
+
+
+    void Awake()
+    {
+        if (instance == null)
+        {
             instance = this;
-            DontDestroyOnLoad (this.gameObject);   
-       }
+            DontDestroyOnLoad(this.gameObject);
+        }
 
-       else
-       {
-           Destroy(gameObject);
-       }
+        else
+        {
+            Destroy(gameObject);
+        }
 
-       SceneManager.sceneLoaded += Carrega;
+        SceneManager.sceneLoaded += Carrega;
 
-       PegaDados ();
-      
+        PegaDados ();
+
     }
 
     void Carrega(Scene cena, LoadSceneMode modo)
@@ -47,51 +49,51 @@ public class UIManager : MonoBehaviour
     }
 
     void PegaDados()
-    {    
-        if(OndeEstou.instance.fase != 4)
+    {
+        if (OndeEstou.instance.fase != 1 && OndeEstou.instance.fase != 2)
         {
             //Elementos da UI pontos e bolas
-        pontosUI = GameObject.Find ("PontosUI").GetComponent<Text> ();
-        bolasUI = GameObject.Find ("bolasUI").GetComponent<Text> ();
+            pontosUI = GameObject.Find ("PontosUI").GetComponent<Text> ();
+            bolasUI = GameObject.Find ("bolasUI").GetComponent<Text> ();
             //Paineis
-        losePainel = GameObject.Find ("LosePainel");
-        winPainel = GameObject.Find ("WinPainel");
-        pausePainel = GameObject.Find ("PausePainel");
+            losePainel = GameObject.Find("LosePainel");
+            winPainel = GameObject.Find("WinPainel");
+            pausePainel = GameObject.Find("PausePainel");
             //Botões de Pause
-        pauseBtn = GameObject.Find ("pause").GetComponent<Button> ();
-        pauseBTN_Return = GameObject.Find ("Pause").GetComponent<Button> ();
+            pauseBtn = GameObject.Find("pause").GetComponent<Button>();
+            pauseBTN_Return = GameObject.Find("Pause").GetComponent<Button>();
             //Botões de Lose
-        btnNovamenteLose = GameObject.Find ("NovamenteLOSE").GetComponent<Button> ();
-        btnLevelLose = GameObject.Find ("MenuFasesLOSE").GetComponent<Button> ();
+            btnNovamenteLose = GameObject.Find("NovamenteLOSE").GetComponent<Button>();
+            btnLevelLose = GameObject.Find("MenuFasesLOSE").GetComponent<Button>();
             //Botões de Win
-        btnLevelWin = GameObject.Find ("MenuFasesWIN").GetComponent<Button> ();
-        btnNovamenteWin = GameObject.Find ("NovamenteWIN").GetComponent<Button> ();
-        btnAvancaWin = GameObject.Find ("AvancarWIN").GetComponent<Button> ();
-       
+            btnLevelWin = GameObject.Find("MenuFasesWIN").GetComponent<Button>();
+            btnNovamenteWin = GameObject.Find("NovamenteWIN").GetComponent<Button>();
+            btnAvancaWin = GameObject.Find("AvancarWIN").GetComponent<Button>();
+
             //Eventos
 
             //Eventos Pause
-        pauseBtn.onClick.AddListener (Pause);
-        pauseBTN_Return.onClick.AddListener (PauseReturn);
+            pauseBtn.onClick.AddListener(Pause);
+            pauseBTN_Return.onClick.AddListener(PauseReturn);
 
-        //Eventos you Lose
+            //Eventos you Lose
 
-        btnNovamenteLose.onClick.AddListener (JogarNovamente);
-        btnLevelLose.onClick.AddListener (Levels);
+            btnNovamenteLose.onClick.AddListener(JogarNovamente);
+            btnLevelLose.onClick.AddListener(Levels);
 
-        //Eventos You Win
-        btnLevelWin.onClick.AddListener (Levels);
-        btnNovamenteWin.onClick.AddListener (JogarNovamente);
-        btnAvancaWin.onClick.AddListener (ProximaFase);
-        moedasNumAntes = PlayerPrefs.GetInt ("moedasSave");
-        
+            //Eventos You Win
+            btnLevelWin.onClick.AddListener(Levels);
+            btnNovamenteWin.onClick.AddListener(JogarNovamente);
+            btnAvancaWin.onClick.AddListener(ProximaFase);
+            moedasNumAntes = PlayerPrefs.GetInt("moedasSave");
+
         }
 
     }
 
     public void StartUI()
     {
-         LigaDesligaPainel ();
+        LigaDesligaPainel();
     }
 
     public void UpdateUI()
@@ -99,43 +101,43 @@ public class UIManager : MonoBehaviour
         pontosUI.text = ScoreManager.instance.moedas.ToString();
         bolasUI.text = GameManager.instance.bolasNum.ToString();
         moedasNumDepois = ScoreManager.instance.moedas;
-        
+
     }
 
     public void GameOverUI()
     {
-        losePainel.SetActive (true);
+        losePainel.SetActive(true);
     }
 
     public void WinGameUI()
     {
-        winPainel.SetActive (true);
+        winPainel.SetActive(true);
     }
 
     void LigaDesligaPainel()
     {
-        StartCoroutine (tempo());
+        StartCoroutine(tempo());
     }
 
     void Pause()
     {
-        pausePainel.SetActive (true);
-        pausePainel.GetComponent<Animator> ().Play("MoveUI_Pause");
+        pausePainel.SetActive(true);
+        pausePainel.GetComponent<Animator>().Play("MoveUI_Pause");
         Time.timeScale = 0;
     }
 
     void PauseReturn()
     {
-        
-        pausePainel.GetComponent<Animator> ().Play ("MoveUI_PauseR");
+
+        pausePainel.GetComponent<Animator>().Play("MoveUI_PauseR");
         Time.timeScale = 1;
-        StartCoroutine (EsperaPause());
+        StartCoroutine(EsperaPause());
     }
 
     IEnumerator EsperaPause()
     {
-        yield return new WaitForSeconds (0.8f);
-        pausePainel.SetActive (false);
+        yield return new WaitForSeconds(0.8f);
+        pausePainel.SetActive(false);
 
     }
 
@@ -144,53 +146,53 @@ public class UIManager : MonoBehaviour
 
     IEnumerator tempo()
     {
-        yield return new WaitForSeconds (0.001f);
-        losePainel.SetActive (false);
-        winPainel.SetActive (false);
-        pausePainel.SetActive (false);
+        yield return new WaitForSeconds(0.001f);
+        losePainel.SetActive(false);
+        winPainel.SetActive(false);
+        pausePainel.SetActive(false);
     }
 
     void JogarNovamente()
     {
-       if(GameManager.instance.win == false)
-       {
+        if (GameManager.instance.win == false)
+        {
             SceneManager.LoadScene(OndeEstou.instance.fase);
             resultado = moedasNumDepois - moedasNumAntes;
-            ScoreManager.instance.PerdeMoedas (resultado);
+            ScoreManager.instance.PerdeMoedas(resultado);
             resultado = 0;
-       }
-       else
-       {
-            SceneManager.LoadScene(OndeEstou.instance.fase); 
-            resultado = 0;  
-       }
+        }
+        else
+        {
+            SceneManager.LoadScene(OndeEstou.instance.fase);
+            resultado = 0;
+        }
     }
 
     void Levels()
     {
-        if(GameManager.instance.win == false)
+        if (GameManager.instance.win == false)
         {
             resultado = moedasNumDepois - moedasNumAntes;
-            ScoreManager.instance.PerdeMoedas (resultado);
+            ScoreManager.instance.PerdeMoedas(resultado);
             resultado = 0;
-            SceneManager.LoadScene (4);
+            SceneManager.LoadScene(4);
 
         }
 
         else
         {
             resultado = 0;
-            SceneManager.LoadScene (4);
+            SceneManager.LoadScene(4);
         }
     }
 
     void ProximaFase()
     {
-        if(GameManager.instance.win == true)
+        if (GameManager.instance.win == true)
         {
             int temp = OndeEstou.instance.fase + 1;
-            SceneManager.LoadScene (temp);
+            SceneManager.LoadScene(temp);
         }
     }
-  
+
 }
